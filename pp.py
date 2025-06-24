@@ -112,10 +112,15 @@ def extract_all_features(audio_path):
              f0_mean, f0_hi, f0_lo, jitter_abs, jitter_rap, jitter_ppq, jitter_ddp,
              shimmer, hnr, nhr, rpde, dfa_val, ppe, spread1, spread2]
         ])
-        return features
+        return {
+            "status": "success",
+            "features": features.tolist()  # convert np.ndarray to JSON-serializable list
+        }
     except Exception as e:
-        print(f"Error processing {audio_path}: {e}")
-        return None
+        return {
+            "status": "error",
+            "message": str(e)
+        }
 
 
 
