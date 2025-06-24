@@ -26,9 +26,4 @@ def extract():
     return jsonify(prediction_result)
 
 if __name__ == "__main__":
-    app.run(
-        host="0.0.0.0",  # Accessible from other devices
-        port=5000,
-        debug=True,      # Shows logs, important for development
-        use_reloader=False  # Prevents double-starting issue
-    )
+    app.run(host="0.0.0.0",port=10000)
