@@ -4,6 +4,9 @@ from pp import extract_all_features, predict_audio
 import os
 
 app = Flask(__name__)
+@app.route("/", methods=["GET"])
+def index():
+    return "Lung Disease Classifier API is running", 200
 
 @app.route("/extract", methods=["POST"])
 def extract():
@@ -29,5 +32,6 @@ import os
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
+    print(f"✅ Flask app running on port {port}")
     app.run(host="0.0.0.0", port=port)
 
