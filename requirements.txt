@@ -2,7 +2,6 @@ setuptools>=65.5.0
 wheel
 build
 
-libsndfile
 numpy==1.23.5
 scipy==1.10.1
 librosa==0.10.1
