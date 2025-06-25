@@ -17,7 +17,7 @@ label_encoder = joblib.load("labelencoder.pkl")
 
 # Constants
 SAMPLE_RATE = 16000
-DURATION = 20
+DURATION = 10
 MFCC_FEATURES = 40
 SEGMENT_LENGTH = DURATION * SAMPLE_RATE
 HOP_LENGTH = 128
