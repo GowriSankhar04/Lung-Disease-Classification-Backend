@@ -22,10 +22,9 @@ def extract():
     feature_result = extract_all_features(audio_path)
     if feature_result["status"] != "success":
         return jsonify(feature_result), 500
-
     features = feature_result["features"]  # Already a list of float values
     prediction_result = predict_audio(features)
-
+    print("✅ Prediction result:", prediction_result)
     return jsonify(prediction_result)
 
 import os
