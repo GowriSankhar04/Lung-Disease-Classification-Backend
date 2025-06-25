@@ -29,10 +29,20 @@ def extract():
     print("✅ Prediction result:", prediction_result)
     return jsonify(prediction_result)
 
+from flask import Flask
+app = Flask(__name__)
+
+# Your Flask routes go here
+@app.route("/")
+def home():
+    return "Backend is working!"
+
+# The part you're asking about:
 import os
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     print(f"✅ Flask app running on port {port}")
     app.run(host="0.0.0.0", port=port)
+
 
