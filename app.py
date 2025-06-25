@@ -17,12 +17,14 @@ def extract():
     audio_path = os.path.join("uploads", "input.wav")
     os.makedirs("uploads", exist_ok=True)
     file.save(audio_path)
+    print("✅ Audio file saved at:", audio_path)
 
     # Feature Extraction
     feature_result = extract_all_features(audio_path)
     if feature_result["status"] != "success":
         return jsonify(feature_result), 500
     features = feature_result["features"]  # Already a list of float values
+    print("✅ Features extracted:", features[:5])  # Print only first 5 for brevity
     prediction_result = predict_audio(features)
     print("✅ Prediction result:", prediction_result)
     return jsonify(prediction_result)
